@@ -81,3 +81,16 @@ Notice how it deals with case:
 
 SELECT * FROM cats WHERE name='egG';  //un_caseSensitif (bisa);
 
+-- =====================================================================================================================
+CODE: SELECT Challenges Solution
+CODE: Select Challenges Solution
+SELECT cat_id FROM cats; 
+
+SELECT name, breed FROM cats; 
+
+SELECT name, age FROM cats WHERE breed='Tabby'; 
+
+SELECT cat_id, age FROM cats WHERE cat_id=age; 
+
+SELECT * FROM cats WHERE cat_id=age; --Bisa membandingkan isi antar Kolom
+
