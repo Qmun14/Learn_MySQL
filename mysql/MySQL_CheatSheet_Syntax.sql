@@ -94,3 +94,17 @@ SELECT cat_id, age FROM cats WHERE cat_id=age;
 
 SELECT * FROM cats WHERE cat_id=age; --Bisa membandingkan isi antar Kolom
 
+-- ======================================================================================================================
+
+CODE: Introduction to Aliases
+CODE: Introduction to Aliases
+
+SELECT cat_id AS id, name FROM cats;
+ 
+SELECT name AS 'cat name', breed AS 'kitty breed' FROM cats;
+
+SELECT cat_id AS "id", name AS 'Nama' from cats;
+
+SELECT cat_id AS "id", name AS 'Nama', breed AS 'Ras' from cats; --BISA MEMBUAT ALIAS UNTUK MEMPERMUDAH KETIKA MELAKUKAN QUERY {INI TIDAK AKAN MERUBAH NAMA FIELD ASLINYA}
+ 
+DESC cats;
