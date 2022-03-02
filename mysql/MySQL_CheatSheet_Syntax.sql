@@ -66,5 +66,18 @@ SELECT age, breed, name, cat_id FROM cats;
 
 SELECT cat_id, name, age, breed FROM cats; 
 
+-- =============================================================================================================
+CODE: Introduction to WHERE
+CODE: Introduction to WHERE
+Select by age:
 
+SELECT * FROM cats WHERE age=4; 
+
+Select by name:
+
+SELECT * FROM cats WHERE name='Egg'; 
+
+Notice how it deals with case:
+
+SELECT * FROM cats WHERE name='egG';  //un_caseSensitif (bisa);
 
