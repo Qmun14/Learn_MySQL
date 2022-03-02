@@ -108,3 +108,17 @@ SELECT cat_id AS "id", name AS 'Nama' from cats;
 SELECT cat_id AS "id", name AS 'Nama', breed AS 'Ras' from cats; --BISA MEMBUAT ALIAS UNTUK MEMPERMUDAH KETIKA MELAKUKAN QUERY {INI TIDAK AKAN MERUBAH NAMA FIELD ASLINYA}
  
 DESC cats;
+
+-- ===========================================================================================================================
+
+CODE: The UPDATE Command
+CODE: Updating Data
+Change tabby cats to shorthair:
+
+UPDATE <NAMA_TABLE> SET <NAMA_FIELD/KOLOM> = 'ISI_CONTENTNYA_YANG_MAU_DPAKAI' WHERE <NAMA_FIELD/KOLOM> = 'ISI_YANG_MAU DIGANTI_/DITUJU'; 
+
+UPDATE cats SET breed='Shorthair' WHERE breed='Tabby'; 
+
+Another update:
+
+UPDATE cats SET age=14 WHERE name='Misty'; 
