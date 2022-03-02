@@ -162,3 +162,21 @@ DELETE FROM cats WHERE name='egg';
 SELECT * FROM cats;
  
 DELETE FROM cats;
+-- ======================================
+CODE: DELETE Challenges Solution
+CODE: DELETE Challenges Solution
+SELECT * FROM cats WHERE age=4;
+ 
+DELETE FROM cats WHERE age=4;
+ 
+SELECT * FROM cats WHERE age=4;
+ 
+SELECT * FROM cats;
+ 
+SELECT *  FROM cats WHERE cat_id=age;
+ 
+DELETE FROM cats WHERE cat_id=age;
+ 
+DELETE FROM cats;
+ 
+SELECT * FROM cats;
