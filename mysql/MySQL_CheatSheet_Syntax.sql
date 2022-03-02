@@ -10,7 +10,7 @@ Jika Anda melihat database Anda, buka dengan:
 USE <db_name>;
 
 Mendapatkan Informasi Tentang Database dan Tabel
-Anda sebelumnya telah melihat SHOW DATABASES, yang mencantumkan database yang dikelola oleh server. 
+Anda sebelumnya telah melihat ** SHOW DATABASES; **, yang mencantumkan database yang dikelola oleh server. 
 Untuk mengetahui database mana yang sedang dipilih, gunakan fungsi DATABASE() :
 mysql> SELECT DATABASE();
 +------------+
@@ -180,3 +180,11 @@ DELETE FROM cats WHERE cat_id=age;
 DELETE FROM cats;
  
 SELECT * FROM cats;
+
+DROP TABLE <NAMA_TABLENYA>; --MENGHAPUS TABEL
+
+-- ********************************************************************************************
+-- =============================================================================================
+
+
+                                            
