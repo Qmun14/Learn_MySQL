@@ -161,7 +161,7 @@ FROM books;
  
 source book_code.sql
 
--- =========================================================================================================================================
+-- ============================================================================================================================================
 
 CODE: Introducing REPLACE
 SELECT REPLACE('Hello World', 'Hell', '%$#@');
@@ -194,7 +194,17 @@ SELECT
 FROM books;
 Notes:
 - Use cmd + /  (mac) or ctrl + /  (pc) to comment out SQL in c9.
-- The REPLACE() function, as well as the other string functions, only change the query output, they don't affect the actual data in the database.
+- The REPLACE() function, as well as the other string functions, only change the query output, they don't' affect the actual data in the database.
 
+-- ====================================================================================================================================================;
 
-
+CODE: Using REVERSE
+SELECT REVERSE('Hello World');
+ 
+SELECT REVERSE('meow meow');
+ 
+SELECT REVERSE(author_fname) FROM books;
+ 
+SELECT CONCAT('woof', REVERSE('woof'));
+ 
+SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
