@@ -232,3 +232,35 @@ SELECT UPPER(title) FROM books;
 SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title)) FROM books;
  
 SELECT CONCAT('MY FAVORITE BOOK IS ', LOWER(title)) FROM books;
+
+Note about string functions
+Hi everyone,
+I have two important notes for you.
+
+Firstly, before you move onto the next lecture, please remember that order is important when dealing with combining/wrapping certain string functions.
+
+For example:
+
+This works:
+
+SELECT UPPER(CONCAT(author_fname, ' ', author_lname)) AS "full name in caps"
+FROM books;
+While this does not:
+
+SELECT CONCAT(UPPER(author_fname, ' ', author_lname)) AS "full name in caps" 
+FROM books;
+UPPER only takes one argument and CONCAT takes two or more arguments, so they can't' be switched in that way.   --Ini Pasti Error
+
+You could do it this way, however:
+
+SELECT CONCAT(UPPER(author_fname), ' ', UPPER(author_lname)) AS "full name in caps" 
+FROM books;
+But, the first example above would be better (more DRY*) because you wouldn't' need to call UPPER two times.
+
+*Don't' Repeat Yourself
+
+And secondly, the last exercise in the lecture that follows will show only 2 rows in the table from the slide where Colt describes the exercise. However, in the solution video Colt shows more than 2 rows/results in the query's' output. Please feel free to return all the rows from the table (to match Colt's' solution), then if you want an extra challenge you can try to modify your query to return just the two rows from the slide deck example.
+
+--------
+Cheers,
+Ian

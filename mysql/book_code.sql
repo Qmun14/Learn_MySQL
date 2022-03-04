@@ -97,3 +97,30 @@ SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title)) FROM books;
 -- | MY FAVORITE BOOK IS CONSIDER THE LOBSTER                                |
 -- +-------------------------------------------------------------------------+
 -- 16 rows in set (0.00 sec)
+
+SELECT UPPER(CONCAT(author_fname, ' ', author_lname)) AS "full name in caps"
+FROM books  WHERE book_id = 1 OR book_id = 2;
+
+-- +-------------------+
+-- | full name in caps |
+-- +-------------------+
+-- | JHUMPA LAHIRI     |
+-- | NEIL GAIMAN       |
+-- +-------------------+
+-- 2 rows in set (0.00 sec)
+
+
+SELECT UPPER(CONCAT(author_fname, ' ', author_lname)) AS "full name in caps"
+FROM books  WHERE released_year = 2003;
+
+-- +-------------------+
+-- | full name in caps |
+-- +-------------------+
+-- | JHUMPA LAHIRI     |
+-- | NEIL GAIMAN       |
+-- +-------------------+
+-- 2 rows in set (0.00 sec)
+
+
+
+
