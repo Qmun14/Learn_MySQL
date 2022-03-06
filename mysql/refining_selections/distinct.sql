@@ -68,4 +68,4 @@ SELECT DISTINCT author_fname, author_lname FROM books;
 -- | Freida       | Harris         |
 -- | George       | Saunders       |
 -- +--------------+----------------+
--- 12 rows in set (0.00 sec)
+-- 12 rows in set (0.00 sec)`

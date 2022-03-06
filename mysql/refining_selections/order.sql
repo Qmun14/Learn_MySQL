@@ -1,0 +1,222 @@
+SELECT * FROM books ORDER BY title;
+
+-- mysql> source refining_selections/order.sql;
+-- +---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+-- | book_id | title                                               | author_fname | author_lname   | released_year | stock_quantity | pages |
+-- +---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+-- |      17 | 10% Happier                                         | Dan          | Harris         |          2014 |             29 |   256 |
+-- |       9 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+-- |       5 | A Hologram for the King: A Novel                    | Dave         | Eggers         |          2012 |            154 |   352 |
+-- |       3 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+-- |      14 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+-- |      16 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+-- |      10 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+-- |      18 | fake_book                                           | Freida       | Harris         |          2001 |            287 |   428 |
+-- |       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+-- |       8 | Just Kids                                           | Patti        | Smith          |          2010 |             55 |   304 |
+-- |      19 | Lincoln In The Bardo                                | George       | Saunders       |          2017 |           1000 |   367 |
+-- |       2 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+-- |      15 | Oblivion: Stories                                   | David        | Foster Wallace |          2004 |            172 |   329 |
+-- |       7 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |          2000 |             68 |   634 |
+-- |       6 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+-- |       1 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+-- |      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+-- |      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+-- |      13 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+-- +---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+-- 19 rows in set (0.00 sec)
+
+
+SELECT author_lname FROM books ORDER BY author_lname;
+
+-- mysql> source refining_selections/order.sql;
+-- +----------------+
+-- | author_lname   |
+-- +----------------+
+-- | Carver         |
+-- | Carver         |
+-- | Chabon         |
+-- | DeLillo        |
+-- | Eggers         |
+-- | Eggers         |
+-- | Eggers         |
+-- | Foster Wallace |
+-- | Foster Wallace |
+-- | Gaiman         |
+-- | Gaiman         |
+-- | Gaiman         |
+-- | Harris         |
+-- | Harris         |
+-- | Lahiri         |
+-- | Lahiri         |
+-- | Saunders       |
+-- | Smith          |
+-- | Steinbeck      |
+-- +----------------+
+-- 19 rows in set (0.00 sec)
+
+
+
+SELECT author_lname FROM books ORDER BY author_lname DESC;
+-- mysql> source refining_selections/order.sql;
+-- +----------------+
+-- | author_lname   |
+-- +----------------+
+-- | Steinbeck      |
+-- | Smith          |
+-- | Saunders       |
+-- | Lahiri         |
+-- | Lahiri         |
+-- | Harris         |
+-- | Harris         |
+-- | Gaiman         |
+-- | Gaiman         |
+-- | Gaiman         |
+-- | Foster Wallace |
+-- | Foster Wallace |
+-- | Eggers         |
+-- | Eggers         |
+-- | Eggers         |
+-- | DeLillo        |
+-- | Chabon         |
+-- | Carver         |
+-- | Carver         |
+-- +----------------+
+-- 19 rows in set (0.01 sec)
+
+SELECT released_year FROM books ORDER BY released_year ASC;
+-- mysql> source refining_selections/order.sql;
+-- +---------------+
+-- | released_year |
+-- +---------------+
+-- |          1945 |
+-- |          1981 |
+-- |          1985 |
+-- |          1989 |
+-- |          1996 |
+-- |          2000 |
+-- |          2001 |
+-- |          2001 |
+-- |          2001 |
+-- |          2003 |
+-- |          2003 |
+-- |          2004 |
+-- |          2005 |
+-- |          2010 |
+-- |          2012 |
+-- |          2013 |
+-- |          2014 |
+-- |          2016 |
+-- |          2017 |
+-- +---------------+
+-- 19 rows in set (0.00 sec)
+
+SELECT title, released_year, pages FROM books ORDER BY released_year;
+-- mysql> source refining_selections/order.sql;
+-- +-----------------------------------------------------+---------------+-------+
+-- | title                                               | released_year | pages |
+-- +-----------------------------------------------------+---------------+-------+
+-- | Cannery Row                                         |          1945 |   181 |
+-- | What We Talk About When We Talk About Love: Stories |          1981 |   176 |
+-- | White Noise                                         |          1985 |   320 |
+-- | Where I'm Calling From: Selected Stories            |          1989 |   526 |
+-- | Interpreter of Maladies                             |          1996 |   198 |
+-- | The Amazing Adventures of Kavalier & Clay           |          2000 |   634 |
+-- | fake_book                                           |          2001 |   428 |
+-- | American Gods                                       |          2001 |   465 |
+-- | A Heartbreaking Work of Staggering Genius           |          2001 |   437 |
+-- | Coraline                                            |          2003 |   208 |
+-- | The Namesake                                        |          2003 |   291 |
+-- | Oblivion: Stories                                   |          2004 |   329 |
+-- | Consider the Lobster                                |          2005 |   343 |
+-- | Just Kids                                           |          2010 |   304 |
+-- | A Hologram for the King: A Novel                    |          2012 |   352 |
+-- | The Circle                                          |          2013 |   504 |
+-- | 10% Happier                                         |          2014 |   256 |
+-- | Norse Mythology                                     |          2016 |   304 |
+-- | Lincoln In The Bardo                                |          2017 |   367 |
+-- +-----------------------------------------------------+---------------+-------+
+-- 19 rows in set (0.00 sec)
+
+SELECT title, author_fname, author_lname 
+FROM books ORDER BY 2;    --Maksudnya adalah di order berdasarkan kolom kedua dari SELECT querynya (author_fname)--
+-- mysql> source refining_selections/order.sql;
+-- +-----------------------------------------------------+--------------+----------------+
+-- | title                                               | author_fname | author_lname   |
+-- +-----------------------------------------------------+--------------+----------------+
+-- | 10% Happier                                         | Dan          | Harris         |
+-- | A Hologram for the King: A Novel                    | Dave         | Eggers         |
+-- | The Circle                                          | Dave         | Eggers         |
+-- | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |
+-- | Consider the Lobster                                | David        | Foster Wallace |
+-- | Oblivion: Stories                                   | David        | Foster Wallace |
+-- | White Noise                                         | Don          | DeLillo        |
+-- | fake_book                                           | Freida       | Harris         |
+-- | Lincoln In The Bardo                                | George       | Saunders       |
+-- | Interpreter of Maladies                             | Jhumpa       | Lahiri         |
+-- | The Namesake                                        | Jhumpa       | Lahiri         |
+-- | Cannery Row                                         | John         | Steinbeck      |
+-- | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |
+-- | Coraline                                            | Neil         | Gaiman         |
+-- | American Gods                                       | Neil         | Gaiman         |
+-- | Norse Mythology                                     | Neil         | Gaiman         |
+-- | Just Kids                                           | Patti        | Smith          |
+-- | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |
+-- | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |
+-- +-----------------------------------------------------+--------------+----------------+
+-- 19 rows in set (0.00 sec)
+
+SELECT title, author_fname, author_lname 
+FROM books ORDER BY 1 DESC;
+-- mysql> source refining_selections/order.sql;
+-- +-----------------------------------------------------+--------------+----------------+
+-- | title                                               | author_fname | author_lname   |
+-- +-----------------------------------------------------+--------------+----------------+
+-- | White Noise                                         | Don          | DeLillo        |
+-- | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |
+-- | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |
+-- | The Namesake                                        | Jhumpa       | Lahiri         |
+-- | The Circle                                          | Dave         | Eggers         |
+-- | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |
+-- | Oblivion: Stories                                   | David        | Foster Wallace |
+-- | Norse Mythology                                     | Neil         | Gaiman         |
+-- | Lincoln In The Bardo                                | George       | Saunders       |
+-- | Just Kids                                           | Patti        | Smith          |
+-- | Interpreter of Maladies                             | Jhumpa       | Lahiri         |
+-- | fake_book                                           | Freida       | Harris         |
+-- | Coraline                                            | Neil         | Gaiman         |
+-- | Consider the Lobster                                | David        | Foster Wallace |
+-- | Cannery Row                                         | John         | Steinbeck      |
+-- | American Gods                                       | Neil         | Gaiman         |
+-- | A Hologram for the King: A Novel                    | Dave         | Eggers         |
+-- | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |
+-- | 10% Happier                                         | Dan          | Harris         |
+-- +-----------------------------------------------------+--------------+----------------+
+-- 19 rows in set (0.00 sec)
+
+SELECT author_fname, author_lname FROM books ORDER BY author_lname, author_fname;
+-- mysql> source refining_selections/order.sql;
+-- +--------------+----------------+
+-- | author_fname | author_lname   |
+-- +--------------+----------------+
+-- | Raymond      | Carver         |
+-- | Raymond      | Carver         |
+-- | Michael      | Chabon         |
+-- | Don          | DeLillo        |
+-- | Dave         | Eggers         |
+-- | Dave         | Eggers         |
+-- | Dave         | Eggers         |
+-- | David        | Foster Wallace |
+-- | David        | Foster Wallace |
+-- | Neil         | Gaiman         |
+-- | Neil         | Gaiman         |
+-- | Neil         | Gaiman         |
+-- | Dan          | Harris         |
+-- | Freida       | Harris         |
+-- | Jhumpa       | Lahiri         |
+-- | Jhumpa       | Lahiri         |
+-- | George       | Saunders       |
+-- | Patti        | Smith          |
+-- | John         | Steinbeck      |
+-- +--------------+----------------+
+-- 19 rows in set (0.00 sec)
