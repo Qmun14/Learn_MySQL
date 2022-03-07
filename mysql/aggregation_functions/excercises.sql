@@ -51,7 +51,7 @@ SELECT SUM(stock_quantity) AS 'Number of Books'FROM books;
 
 -- Find the average released_year for each author
 
-SELECT AVG(released_year), CONCAT(author_fname, ' ', author_lname) FROM books GROUP BY author_lname, author_lname;
+SELECT AVG(released_year), CONCAT(author_fname, ' ', author_lname) FROM books GROUP BY author_lname, author_fname;
 -- mysql> source aggregation_functions/excercises.sql;
 -- +--------------------+-----------------------------------------+
 -- | AVG(released_year) | CONCAT(author_fname, ' ', author_lname) |
@@ -62,13 +62,14 @@ SELECT AVG(released_year), CONCAT(author_fname, ' ', author_lname) FROM books GR
 -- |          2008.6667 | Dave Eggers                             |
 -- |          2004.5000 | David Foster Wallace                    |
 -- |          2006.6667 | Neil Gaiman                             |
--- |          2007.5000 | Dan Harris                              |
+-- |          2014.0000 | Dan Harris                              |
+-- |          2001.0000 | Freida Harris                           |
 -- |          1999.5000 | Jhumpa Lahiri                           |
 -- |          2017.0000 | George Saunders                         |
 -- |          2010.0000 | Patti Smith                             |
 -- |          1945.0000 | John Steinbeck                          |
 -- +--------------------+-----------------------------------------+
--- 11 rows in set (0.00 sec)
+-- 12 rows in set (0.00 sec)
 
 
 -- # Find the full name of the author who wrote the longest book
