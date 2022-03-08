@@ -232,6 +232,102 @@ SELECT birthdt, birthdt + INTERVAL 15 MONTH + INTERVAL 10 HOUR FROM people;
 -- +---------------------+------------------------------------------------+
 -- 3 rows in set (0.00 sec)
 
+--  ========================================= DATE TIME & TIMESTAMP =================================================================
+CREATE TABLE comments (
+    content VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+-- mysql> DESC comments;
+-- +------------+--------------+------+-----+-------------------+-------+
+-- | Field      | Type         | Null | Key | Default           | Extra |
+-- +------------+--------------+------+-----+-------------------+-------+
+-- | content    | varchar(100) | YES  |     | NULL              |       |
+-- | created_at | timestamp    | NO   |     | CURRENT_TIMESTAMP |       |
+-- +------------+--------------+------+-----+-------------------+-------+
+
+INSERT INTO comments (content) VALUES('lol what a funny article');
+ 
+INSERT INTO comments (content) VALUES('I found this offensive');
+ 
+INSERT INTO comments (content) VALUES('Ifasfsadfsadfsad');
+
+-- mysql> SELECT * FROM comments;
+-- +--------------------------+---------------------+
+-- | content                  | created_at          |
+-- +--------------------------+---------------------+
+-- | lol what a funny article | 2022-03-08 21:18:36 |
+-- | I found this offensive   | 2022-03-08 21:18:55 |
+-- | Ifasfsadfsadfsad         | 2022-03-08 21:26:43 |
+-- +--------------------------+---------------------+
+-- 3 rows in set (0.00 sec)
+
+SELECT * FROM comments ORDER BY created_at DESC;
+-- mysql> source DATE_TIME/date.sql;
+-- +--------------------------+---------------------+
+-- | content                  | created_at          |
+-- +--------------------------+---------------------+
+-- | Ifasfsadfsadfsad         | 2022-03-08 21:26:43 |
+-- | I found this offensive   | 2022-03-08 21:18:55 |
+-- | lol what a funny article | 2022-03-08 21:18:36 |
+-- +--------------------------+---------------------+
+-- 3 rows in set (0.00 sec)
+
+CREATE TABLE comments2 (
+    content VARCHAR(100),
+    changed_at TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+);
+-- mysql> DESC comments2;
+-- +------------+--------------+------+-----+-------------------+-----------------------------+
+-- | Field      | Type         | Null | Key | Default           | Extra                       |
+-- +------------+--------------+------+-----+-------------------+-----------------------------+
+-- | content    | varchar(100) | YES  |     | NULL              |                             |
+-- | changed_at | timestamp    | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+-- +------------+--------------+------+-----+-------------------+-----------------------------+
+-- 2 rows in set (0.00 sec)
+
+INSERT INTO comments2 (content) VALUES('dasdasdasd');
+ 
+INSERT INTO comments2 (content) VALUES('lololololo');
+ 
+INSERT INTO comments2 (content) VALUES('I LIKE CATS AND DOGS');
+-- mysql> source DATE_TIME/date.sql;
+-- +----------------------+---------------------+
+-- | content              | changed_at          |
+-- +----------------------+---------------------+
+-- | dasdasdasd           | 2022-03-08 21:33:56 |
+-- | lololololo           | 2022-03-08 21:34:08 |
+-- | I LIKE CATS AND DOGS | 2022-03-08 21:34:20 |
+-- +----------------------+---------------------+
+-- 3 rows in set (0.00 sec)
+
+ UPDATE comments2 SET content = 'THIS IS NOT GIBBERISH' WHERE content = 'dasdasdasd';
+-- mysql> SELECT * FROM comments2;
+-- +-----------------------+---------------------+
+-- | content               | changed_at          |
+-- +-----------------------+---------------------+
+-- | THIS IS NOT GIBBERISH | 2022-03-08 21:38:26 |
+-- | lololololo            | 2022-03-08 21:34:08 |
+-- | I LIKE CATS AND DOGS  | 2022-03-08 21:34:20 |
+-- +-----------------------+---------------------+
+-- 3 rows in set (0.00 sec)
+
+SELECT * FROM comments2 ORDER BY changed_at DESC;
+-- mysql> source DATE_TIME/date.sql;
+-- +-----------------------+---------------------+
+-- | content               | changed_at          |
+-- +-----------------------+---------------------+
+-- | THIS IS NOT GIBBERISH | 2022-03-08 21:38:26 |
+-- | I LIKE CATS AND DOGS  | 2022-03-08 21:34:20 |
+-- | lololololo            | 2022-03-08 21:34:08 |
+-- +-----------------------+---------------------+
+-- 3 rows in set (0.00 sec)
+
+CREATE TABLE comments2 (
+    content VARCHAR(100),
+    changed_at TIMESTAMP DEFAULT NOW() ON UPDATE NOW()
+);                                                                --QUERY INI JUGA BISA UNTUK MENGATUR PEMBUATAN TABLE YANG TIMESTAMP BERUBAH KETIKA DI UPDATE KE WAKTU SAAT INI
+
+
 
 
 
