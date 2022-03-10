@@ -97,6 +97,69 @@ Query OK, 1 row affected (0.01 sec)
 -- +----+------------+--------+-------------+
 -- 3 rows in set (0.00 sec)
 
+
+SELECT * FROM customers
+LEFT JOIN orders
+    ON customers.id = orders.customer_id;
+
+-- mysql> source Relationships/right_join.sql;
+-- +----+------------+-----------+-----------------+------+------------+--------+-------------+
+-- | id | first_name | last_name | email           | id   | order_date | amount | customer_id |
+-- +----+------------+-----------+-----------------+------+------------+--------+-------------+
+-- |  2 | George     | Michael   | gm@gmail.com    |    3 | 2014-12-12 | 800.67 |           2 |
+-- |  2 | George     | Michael   | gm@gmail.com    |    4 | 2015-01-03 |  12.50 |           2 |
+-- |  5 | Bette      | Davis     | bette@aol.com   |    5 | 1999-04-11 | 450.25 |           5 |
+-- |  3 | David      | Bowie     | david@gmail.com | NULL | NULL       |   NULL |        NULL |
+-- |  4 | Blue       | Steele    | blue@gmail.com  | NULL | NULL       |   NULL |        NULL |
+-- +----+------------+-----------+-----------------+------+------------+--------+-------------+
+-- 5 rows in set (0.01 sec)
+
+
+SELECT * FROM orders
+RIGHT JOIN customers
+    ON customers.id = orders.customer_id; 
+
+-- mysql> source Relationships/right_join.sql;
+-- +------+------------+--------+-------------+----+------------+-----------+-----------------+
+-- | id   | order_date | amount | customer_id | id | first_name | last_name | email           |
+-- +------+------------+--------+-------------+----+------------+-----------+-----------------+
+-- |    3 | 2014-12-12 | 800.67 |           2 |  2 | George     | Michael   | gm@gmail.com    |
+-- |    4 | 2015-01-03 |  12.50 |           2 |  2 | George     | Michael   | gm@gmail.com    |
+-- |    5 | 1999-04-11 | 450.25 |           5 |  5 | Bette      | Davis     | bette@aol.com   |
+-- | NULL | NULL       |   NULL |        NULL |  3 | David      | Bowie     | david@gmail.com |
+-- | NULL | NULL       |   NULL |        NULL |  4 | Blue       | Steele    | blue@gmail.com  |
+-- +------+------------+--------+-------------+----+------------+-----------+-----------------+
+-- 5 rows in set (0.00 sec)
+
+
+SELECT * FROM orders
+LEFT JOIN customers
+    ON customers.id = orders.customer_id;
+
+-- mysql> source Relationships/right_join.sql;
+-- +----+------------+--------+-------------+------+------------+-----------+---------------+
+-- | id | order_date | amount | customer_id | id   | first_name | last_name | email         |
+-- +----+------------+--------+-------------+------+------------+-----------+---------------+
+-- |  3 | 2014-12-12 | 800.67 |           2 |    2 | George     | Michael   | gm@gmail.com  |
+-- |  4 | 2015-01-03 |  12.50 |           2 |    2 | George     | Michael   | gm@gmail.com  |
+-- |  5 | 1999-04-11 | 450.25 |           5 |    5 | Bette      | Davis     | bette@aol.com |
+-- +----+------------+--------+-------------+------+------------+-----------+---------------+
+-- 3 rows in set (0.00 sec)
+ 
+ 
+SELECT * FROM customers
+RIGHT JOIN orders
+    ON customers.id = orders.customer_id;
+
+-- mysql> source Relationships/right_join.sql;
+-- +------+------------+-----------+---------------+----+------------+--------+-------------+
+-- | id   | first_name | last_name | email         | id | order_date | amount | customer_id |
+-- +------+------------+-----------+---------------+----+------------+--------+-------------+
+-- |    2 | George     | Michael   | gm@gmail.com  |  3 | 2014-12-12 | 800.67 |           2 |
+-- |    2 | George     | Michael   | gm@gmail.com  |  4 | 2015-01-03 |  12.50 |           2 |
+-- |    5 | Bette      | Davis     | bette@aol.com |  5 | 1999-04-11 | 450.25 |           5 |
+-- +------+------------+-----------+---------------+----+------------+--------+-------------+
+-- 3 rows in set (0.00 sec)
        
 
  
