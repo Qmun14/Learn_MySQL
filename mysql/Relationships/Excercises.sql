@@ -231,7 +231,8 @@ LEFT JOIN papers
 SELECT first_name,
         IFNULL(AVG(grade), 0) AS average,
         CASE
-            WHEN AVG(grade) > 75 THEN 'PASSING'
+            WHEN AVG(grade) IS NULL THEN 'FAILING'
+            WHEN AVG(grade) >= 75 THEN 'PASSING'
         ELSE 'FAILING'
         END AS passing_status
 FROM students
