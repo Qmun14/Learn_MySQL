@@ -145,7 +145,7 @@ FROM users
 INNER JOIN likes    
     ON users.id = likes.user_id
 GROUP BY users.id
-HAVING num_likes = (SELECT COUNT(*) FROM photos) 
+HAVING num_likes = (SELECT COUNT(*) FROM photos)   -- 'HAVING 'INI SAMA SEPERTI 'WHERE' TETAPI PENGGUNAANNYA KETIKA SEMUA SUDAH DIGRUP DAHULU
 ;
 -- mysql> source DB_Clone_Instagram/query.sql
 -- +--------------------+-----------+
